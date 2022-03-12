@@ -34,7 +34,7 @@ function caesar(_alphabetArray) {
         if (typeOperation === "encrypt") newString += _alphabetArray[(index + key) % alphabetLength];
         if (typeOperation === "decrypt") {
             index = (index - key);
-            if (index < 0) {
+            while (index < 0) {
                 index += alphabetLength;
             }
             newString += _alphabetArray[index % alphabetLength];
