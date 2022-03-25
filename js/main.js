@@ -3,6 +3,8 @@ function cipherButton(showFields) {
         $('#' + field).show();
     });
 
+    $('.description_text').text(descriptionArray[currentCipher]);
+
     if (currentCipher === "polybius_square") {
         createMatrixInputPolybius();
     }

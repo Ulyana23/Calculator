@@ -281,4 +281,14 @@ input:disabled {
   color: #fff;
 }
 
+.description {
+  padding-top: 20px;
+}
+.description .text {
+  line-height: 1.6;
+}
+.description .title {
+  line-height: 2;
+}
+
 /*# sourceMappingURL=main.css.map */
