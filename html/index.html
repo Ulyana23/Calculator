@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Калькулятор</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+
+<div class="main-section">
+    <div class="menu">
+        <button class="btn menu__item active" data-cipher="atbash">Атбаш</button>
+        <button class="btn menu__item" data-cipher="caesar">Шифр Цезаря</button>
+        <button class="btn menu__item" data-cipher="polybius_square">Квадрат Полибия</button>
+        <button class="btn menu__item" data-cipher="trythemia">Шифр Тритемия</button>
+        <button class="btn menu__item" data-cipher="belazo">Шифр Белазо</button>
+        <button class="btn menu__item" data-cipher="vigenere">Шифр Виженера</button>
+        <button class="btn menu__item" data-cipher="magma_s_blocks">S-блок замены «МАГМА»</button>
+        <button class="btn menu__item" data-cipher="playfair">Шифр Плейфера</button>
+        <button class="btn menu__item" data-cipher="matrix">Матричный шифр</button>
+        <button class="btn menu__item" data-cipher="cardano">Решётка Кардано</button>
+        <button class="btn menu__item" data-cipher="vertical">Вертикальная перестановка</button>
+        <button class="btn menu__item" data-cipher="shannon">Блокнот Шеннона</button>
+        <button class="btn menu__item" data-cipher="gamming">Гаммирование ГОСТ 28147-89</button>
+        <button class="btn menu__item" data-cipher="A5_1">A5/1</button>
+        <button class="btn menu__item" data-cipher="A5_2">A5/2</button>
+        <button class="btn menu__item" data-cipher="magma">Магма</button>
+        <button class="btn menu__item" data-cipher="aes">AES</button>
+        <button class="btn menu__item" data-cipher="grasshopper">Кузнечик</button>
+        <button class="btn menu__item" data-cipher="rsa">RSA</button>
+        <button class="btn menu__item" data-cipher="elgamal">Elgamal</button>
+        <button class="btn menu__item" data-cipher="ecc">ECC</button>
+        <button class="btn menu__item" data-cipher="gost94">ГОСТ Р 34.10-94</button>
+        <button class="btn menu__item" data-cipher="gost12">ГОСТ Р 34.10-2012</button>
+        <button class="btn menu__item" data-cipher="rsaDigital">RSA цифровая подпись</button>
+        <button class="btn menu__item" data-cipher="elgamalDigital">Elgamal цифровая подпись</button>
+        <button class="btn menu__item" data-cipher="diffieHellman">Диффи-Хеллман</button>
+    </div>
+
+
+    <div class="calculator">
+        <div class="calculator__item">
+            <div class="button-group">
+                <div class="row">
+                    <div class="btn-group">
+                        <button class="btn" id="encrypt">Зашифровать</button>
+                        <button class="btn" id="decrypt">Расшифровать</button>
+                    </div>
+
+                    <input type="text" class="main-input" id="key" placeholder="Введите ключ" style="display: none">
+
+                    <div id="keys" style="display: none"></div>
+                </div>
+
+                <div class="alphabet__block" id="alphabet">
+                    <div class="alphabet__title title">Алфавит:</div>
+                    <input type="text" class="main-input alphabet" id="alphabet_value" placeholder="Алфавит" value="абвгдеёжзийклмнопрстуфхцчшщъыьэюя">
+                </div>
+
+
+                <textarea class="main-textarea calculator__textarea" rows="8" placeholder="Введите текст" id="text"></textarea>
+
+
+                <div class="row row--top">
+                    <!-- <div class="calculator__square" id="matrix" style="display: none">
+                        <div class="square__title title">Квадрат Плейфера</div>
+                        <div class="square__alphabet matrix--text_value matrix">
+                            <table>
+                                <tr>
+                                    <td>А</td>
+                                    <td>Б</td>
+                                    <td>В</td>
+                                    <td>Г</td>
+                                    <td>Д</td>
+                                    <td>Е</td>
+                                </tr>
+                                <tr>
+                                    <td>Ё</td>
+                                    <td>Ж</td>
+                                    <td>З</td>
+                                    <td>И</td>
+                                    <td>Й</td>
+                                    <td>К</td>
+                                </tr>
+                                <tr>
+                                    <td>Л</td>
+                                    <td>М</td>
+                                    <td>Н</td>
+                                    <td>О</td>
+                                    <td>П</td>
+                                    <td>Р</td>
+                                </tr>
+                                <tr>
+                                    <td>С</td>
+                                    <td>Т</td>
+                                    <td>У</td>
+                                    <td>Ф</td>
+                                    <td>Х</td>
+                                    <td>Ц</td>
+                                </tr>
+                                <tr>
+                                    <td>Ч</td>
+                                    <td>Ш</td>
+                                    <td>Щ</td>
+                                    <td>Ь</td>
+                                    <td>Ы</td>
+                                    <td>Ъ</td>
+                                </tr>
+                                <tr>
+                                    <td>Э</td>
+                                    <td>Ю</td>
+                                    <td>Я</td>
+                                    <td>.</td>
+                                    <td>,</td>
+                                    <td> </td>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div> -->
+
+                    <div class="calculator__square" style="display: none" id="matrix-block">
+                        <div class="square__title title"></div>
+                        <div class="square__alphabet matrix--input_value" id="matrix">
+                            <!-- <table>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="2"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="3"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="4"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="5"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1" tabindex="6"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                </tr>
+                                <tr>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                    <td><input type="text" class="main-input input-square" maxlength="1"></td>
+                                </tr>
+
+                            </table> -->
+                        </div>
+                        <!-- <div class="rotate_matrix"><button id="rotate">Повернуть <span>&#x21b7;</span></button></div> -->
+                    </div>
+
+                    <div class="calculator__result">
+                        <div class="result">
+                            <div class="result__title title" id="result_text" style="display: none">Результат:</div>
+                            <div class="result__text text" id="result"></div>
+                            <!-- <textarea class="main-textarea calculator__textarea" rows="8" placeholder="Введите текст" id="result" readonly></textarea>  -->
+                        </div>
+                        <div class="result__copy"><button class="copy" id="copy" style="display: none">Скопировать</button></div>
+
+                    </div>
+
+                </div>
+
+                <div class="row">
+                    <div class="description">
+                        <div class="title">Описание алгоритма:</div>
+                        <div class="text description_text">АТБАШ — простой шифр подстановки для алфавитного письма. Шифр АТБАШ можно также рассматривать как частный случай аффинного шифра. Слово составлено из первой, последней, второй и предпоследней букв еврейского алфавита. На вход подается текст, шифрование которого заключается в замене i-й буквы алфавита буквой с номером n-i+1, где n — число символов в алфавите.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+
+<script src="js/ciphers.js"></script>
+<script src="js/variables.js"></script>
+<script src="js/design_functions.js"></script>
+<script src="js/cipher_functions.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

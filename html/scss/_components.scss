@@ -1,0 +1,118 @@
+.btn {
+  padding: 10px 30px;
+
+  background: $base-button-color;
+  border-radius: 5px;
+
+  color: #fff;
+  font-family: $fonts;
+  font-size: 15px;
+  font-weight: 500;
+
+  transition: all .2s linear;
+
+  &:hover, &.active {
+    background: $button-hover;
+    color: $base-text-color;
+  }
+}
+
+.rotate_matrix {
+  text-align: right;
+
+  #rotate {
+    background: $attention-color;
+    color: #fff;
+    margin-right: 5px;
+    margin-top: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+
+    &:hover {
+      transition: .1s linear background;
+      background: lighten($attention-color, 5);
+    }
+  }
+}
+
+.main-input {
+  border: none;
+  padding: 10px 30px;
+
+  border-radius: 5px;
+  font-family: $fonts;
+  font-size: 15px;
+}
+
+.input-square {
+  width: 40px;
+  padding: 10px 5px;
+  margin: 1px;
+  text-align: center;
+}
+
+.alphabet__block {
+  margin-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .alphabet__title {
+    padding-right: 15px;
+  }
+  .alphabet {
+    width: 100%;
+  }
+}
+
+
+.main-textarea {
+  border: none;
+  padding: 20px 30px;
+
+  border-radius: 5px;
+  font-family: $fonts;
+  font-size: 15px;
+
+  @include scroll(10px);
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.row--top {
+  align-items: start;
+}
+
+.matrix--text_value {
+  display: inline-block;
+  padding: 8px;
+
+  font-size: 16px;
+  color: $base-text-color;
+  font-weight: 300;
+  text-transform: uppercase;
+
+  background: #fff;
+  border-radius: 5px;
+
+  td {
+    padding: 2px 5px;
+    text-align: center;
+  }
+}
+
+//-- TEXT
+.title {
+  color: $base-text-color;
+  font-weight: 500;
+}
+
+.text {
+  font-weight: 300;
+  font-size: 16px;
+}

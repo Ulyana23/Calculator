@@ -1,0 +1,29 @@
+$base-color: #0E9AA7;
+$base-button-color: #3DA4AB;
+$button-hover: #F6CD61;
+$base-text-color: #4a4e4d;
+$base-color-light: rgba(74, 78, 77, 0.08);
+$gray-color: #ECF0F1;
+$attention-color: #FE8A71;
+
+$fonts: 'Roboto', sans-serif;
+
+@mixin scroll($width) {
+  &::-webkit-scrollbar {
+    width: $width; /* ширина для вертикального скролла */
+    //height: 8px; /* высота для горизонтального скролла */
+    background: transparent;
+  }
+
+  /* ползунок скроллбара */
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(111, 114, 114, 0.4);
+    opacity: .5;
+    border-radius: 25px;
+    border: 3px solid #fff;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(111, 114, 114, 0.2);
+  }
+}
